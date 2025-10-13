@@ -1,18 +1,21 @@
-const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+const navLinks = document.querySelectorAll('nav ul li a');
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('open');
-    });
+// Toggle menu open/close
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  hamburger.classList.toggle('open');
+});
 
-    // Hamburger "X" animation
-    hamburger.addEventListener('click', () => {
-      const spans = hamburger.querySelectorAll('span');
-      spans[0].classList.toggle('rotate-down');
-      spans[1].classList.toggle('fade-out');
-      spans[2].classList.toggle('rotate-up');
-    });
+// Close menu when a link is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('open');
+  });
+});
+
 
 
     // Testiomonial
