@@ -21,8 +21,8 @@ navLinks.forEach(link => {
   const svg = document.getElementById('interactive-svg');
   document.addEventListener('mousemove', (e) => {
     const { innerWidth, innerHeight } = window;
-    const x = (e.clientX / innerWidth - 0.5) * 20; 
-    const y = (e.clientY / innerHeight - 0.5) * 20;
+    const x = (e.clientX / innerWidth - 2.5) * 35; 
+    const y = (e.clientY / innerHeight - 2.5) * 35;
     svg.style.transform = `translate(${x}px, ${y}px)`;
   });
 
