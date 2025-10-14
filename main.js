@@ -16,6 +16,16 @@ navLinks.forEach(link => {
   });
 });
 
+// Index Hero Section - SVG Animation
+
+  const svg = document.getElementById('interactive-svg');
+  document.addEventListener('mousemove', (e) => {
+    const { innerWidth, innerHeight } = window;
+    const x = (e.clientX / innerWidth - 0.5) * 20; 
+    const y = (e.clientY / innerHeight - 0.5) * 20;
+    svg.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
 
 
     // Testiomonial
@@ -139,3 +149,8 @@ function botReply(message) {
   }
   appendMessage('bot', reply);
 }
+
+
+
+// Main About
+
