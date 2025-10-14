@@ -1,290 +1,499 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RRR & CO | Tax & Finance Experts</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512‑…your_hash…" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css"/>
-</head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services — RRR & CO</title>
 
+<style>
+  /* ---------------- base (kept from your rules) ---------------- */
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',sans-serif;background:#f7f7f7;color:#333;line-height:1.6}
+  h1,h2,h3{font-family:'Merriweather',serif}
+  a{color:inherit;text-decoration:none}
 
-<body>
+  /* --------------- page container --------------- */
+  .ritualwrap{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+  }
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="contact-info">
-      <span><i class="fas fa-phone-alt"></i> +91 97780 07764</span>
-      <span><i class="fas fa-envelope"></i> rrath.rrr@gmail.com</span>
-    </div>
+  .ritual-hero {
+    text-align:center;
+    margin-bottom:40px;
+  }
+  .ritual-hero h1{
+    color:#2c3e50;
+    font-size:2.2rem;
+    margin-bottom:10px;
+  }
+  .ritual-hero p{color:#555; max-width:820px; margin:0 auto}
 
-    <div class="social">
-      <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
+  /* --------------- stacked blocks --------------- */
+  .servzone {
+    display:block;
+    margin:40px 0;
+    overflow:visible;
+  }
 
+  .servblock {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    padding:48px;
+    border-radius:18px;
+    background:linear-gradient(180deg,#ffffff 0%, #fff8f2 100%);
+    box-shadow:0 8px 26px rgba(18,24,31,0.06);
+    transform:translateY(30px);
+    opacity:0;
+    transition:transform .7s cubic-bezier(.2,.9,.3,1), opacity .7s ease;
+    position:relative;
+    overflow:visible;
+  }
 
-    </div>
-  </div>
+  /* alternate layout */
+  .servblock--alt { flex-direction:row-reverse; }
 
-  <!-- Header -->
-  <header>
-      <div class="navbar">
-    <div class="logo">
-      <a href="index.html">
-        <img src="img/logo.png" alt="RRR & CO Logo">
-      </a>
-    </div>
-      <nav>
-        <ul id="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+  /* text column */
+  .servtxt {
+    flex:1 1 520px;
+    padding:10px 20px;
+  }
+  .servtxt h3{
+    color:#ff8c00;
+    font-size:1.6rem;
+    margin-bottom:14px;
+  }
+  .servtxt p{
+    color:#4a4a4a;
+    font-size:1rem;
+    line-height:1.7;
+  }
 
-      <!-- Hamburger Icon -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </header>
-<body>
+  .servbtn {
+    display:inline-block;
+    margin-top:18px;
+    background:#ff8c00;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(243,156,18,0.12);
+    transform:translateY(0);
+    transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  .servbtn:hover{ transform:translateY(-6px); background:#e67e22; box-shadow:0 12px 30px rgba(230,126,34,0.18) }
 
-  <!-- Our Story Section -->
-  <section class="aboutus1">
-    <div class="storyabt">
-      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80" alt="Our Story">
-      <div class="storyabt-content">
-        <h2>Our Story</h2>
-        <p>At RRR & CO, we started with a single goal — to simplify finance and empower businesses. Over the years, we’ve grown into a trusted advisory firm providing taxation, compliance, and business consulting services that make a real impact.</p>
-        <p>Our success is built on the trust of our clients, the dedication of our team, and our unwavering commitment to excellence.</p>
-        <a href="#contact" class="btnabt">Learn More</a>
-      </div>
-    </div>
-  </section>
+  /* svg column */
+  .servicon {
+    flex:0 0 420px;
+    max-width:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    perspective:1000px; /* allow subtle 3D */
+  }
 
-  <!-- Behind the Numbers Section -->
-<section class="impact-section">
-  <img src="img/img abt 2.jpeg" alt="Background" class="bgimgabt">
-  <div class="overlayabt"></div>
+  .servicon svg {
+    width:100%;
+    height:auto;
+    transform:translateY(0) translateZ(0);
+    transition:transform .18s ease-out;
+    will-change:transform;
+    filter:drop-shadow(0 10px 25px rgba(34,34,34,0.08));
+  }
+
+  /* hover lift on block */
+  .servblock:hover{
+    transform:translateY(-8px) scale(1.004);
+    box-shadow:0 18px 45px rgba(18,24,31,0.12);
+  }
+
+  /* accent ribbon */
+  .serv-accent {
+    position:absolute;
+    left:18px;
+    top:18px;
+    width:6px;
+    height:60px;
+    border-radius:6px;
+    background:linear-gradient(180deg,#ffb347,#ff8c00);
+    opacity:0;
+    transform:translateX(-10px);
+    transition:all .6s cubic-bezier(.2,.9,.3,1);
+  }
+
+  .servblock.inview .serv-accent{opacity:1; transform:translateX(0)}
+
+  /* when block visible */
+  .servblock.inview{ transform:translateY(0); opacity:1 }
+
+  /* small info row for icons + bullets inside text */
+  .serv-feats {
+    margin-top:16px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .serv-feat {
+    background:#fff;
+    border-radius:8px;
+    padding:8px 12px;
+    color:#555;
+    font-weight:600;
+    box-shadow:0 4px 12px rgba(18,24,31,0.03);
+    font-size:.95rem;
+  }
+
+  /* --------------- subtle floating shapes (decor) --------------- */
+  .serv-shape {
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:linear-gradient(135deg, rgba(255,140,0,0.08), rgba(255,140,0,0.02));
+    z-index:0;
+    pointer-events:none;
+  }
+  .shape-1{ right:10%; top:-30px; transform:translateZ(0); }
+  .shape-2{ left:6%; bottom:-40px; transform:translateZ(0); opacity:0.9; }
+
+  /* --------------- counters / Why choose us --------------- */
+  .chooszone {
+    margin-top:40px;
+    padding:40px;
+    border-radius:14px;
+    background:linear-gradient(180deg,#fff,#fff8f2);
+    box-shadow:0 8px 26px rgba(18,24,31,0.05);
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .choositem {
+    flex:1 1 180px;
+    text-align:center;
+    padding:14px;
+  }
+  .choosnum {
+    font-size:2rem;
+    font-weight:800;
+    color:#ff8c00;
+  }
+  .choostxt { color:#555; margin-top:8px; font-weight:600 }
+
+  /* --------------- responsive --------------- */
   
-  <h2>Behind the Numbers</h2>
-  <div class="counter-container">
-    <div class="counter-box">
-      <i class="fa-solid fa-user-tie"></i>
-      <div class="counter" data-target="1200">0</div>
-      <p>Clients Served</p>
-    </div>
-    <div class="counter-box">
-      <i class="fa-solid fa-briefcase"></i>
-      <div class="counter" data-target="850">0</div>
-      <p>Projects Completed</p>
-    </div>
-    <div class="counter-box">
-      <i class="fa-solid fa-award"></i>
-      <div class="counter" data-target="25">0</div>
-      <p>Years of Experience</p>
-    </div>
-    <div class="counter-box">
-      <i class="fa-solid fa-users"></i>
-      <div class="counter" data-target="50">0</div>
-      <p>Team Members</p>
-    </div>
-  </div>
-</section>
+  @media (max-width:1200px){
+    .ritualwrap{padding:0 24px;}
+    .servblock{padding:36px;}
+    .servicon{max-width:380px;flex:0 0 380px;}
+  }
 
+  @media (max-width:980px){
+    .servblock{padding:30px;border-radius:14px;gap:24px;}
+    .servicon{max-width:340px;flex:0 0 340px;}
+    .servtxt h3{font-size:1.45rem;}
+    .servtxt p{font-size:.97rem;}
+  }
 
-
-  
-    <!-- Our Promise Section -->
-  <section class="promise-section" style="position: relative; overflow: hidden;">
-    <div style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(255, 140, 0, 0.6), rgba(255, 140, 0, 0.6)),
-                  url('https://images.unsplash.com/photo-1581093448798-5b9d5c0d47f2?auto=format&fit=crop&w=1600&q=80') 
-                  center/cover no-repeat;
-      z-index: 0;
-    "></div>
-
-    <div style="position: relative; z-index: 1;">
-      <h2>Our Promise to You</h2>
-      <div class="promise-cards">
-        <div class="promise-card">
-          <i class="fa-solid fa-handshake"></i>
-          <h3>Trust & Integrity</h3>
-          <p>We maintain transparency and build long-term relationships grounded in honesty and reliability.</p>
-        </div>
-        <div class="promise-card">
-          <i class="fa-solid fa-lightbulb"></i>
-          <h3>Innovation</h3>
-          <p>We constantly adapt and innovate to provide smarter, more efficient financial solutions for our clients.</p>
-        </div>
-        <div class="promise-card">
-          <i class="fa-solid fa-user-shield"></i>
-          <h3>Client-Centered Approach</h3>
-          <p>Your goals are our priority — we listen, understand, and deliver results tailored to your needs.</p>
-        </div>
-        <div class="promise-card">
-          <i class="fa-solid fa-chart-line"></i>
-          <h3>Excellence</h3>
-          <p>Our team’s expertise ensures the highest standards of quality, accuracy, and professionalism.</p>
-        </div>
-        <!-- New Card 1 -->
-        <div class="promise-card">
-          <i class="fa-solid fa-globe"></i>
-          <h3>Global Vision</h3>
-          <p>We bring international best practices to every project, empowering clients to thrive in a connected world.</p>
-        </div>
-        <!-- New Card 2 -->
-        <div class="promise-card">
-          <i class="fa-solid fa-clock"></i>
-          <h3>Timely Support</h3>
-          <p>We value your time — our responsive team ensures quick resolutions and consistent communication.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <!-- Column 1: Logo + About -->
-     <div class="footer-about">
-  <a href="index.html" class="footer-logo">
-    <img src="img/logo.png" alt="RRR & CO Logo">
-  </a>
-        <p>RRR & CO is a trusted consultancy firm offering expert tax, audit, and business advisory services.
-          We help individuals and organizations simplify compliance and achieve sustainable growth with confidence.</p>
-      </div>
-
-      <!-- Column 2: Quick Links -->
-      <div class="footer-links">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Newsletter -->
-      <div class="footer-newsletter">
-        <h3>Newsletter</h3>
-        <p>Subscribe to get the latest financial updates and insights from our experts.</p>
-        <form>
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-
-      <!-- Column 4: Contact Info -->
-      <div class="footer-contact">
-        <h3>Contact Us</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Sriram Nagar, TLC Road, Khordha</p>
-        <p><i class="fas fa-phone-alt"></i> +91 97780 07764</p>
-        <p><i class="fas fa-envelope"></i> rrath.rrr@gmail.com</p>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 RRR & CO. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-
-  <!-- Floating Buttons -->
-  <div class="floating-buttons">
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/919876543210" target="_blank" class="whatsapp" title="Chat on WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- Chat Button -->
-  <button class="chat" id="chatButton" title="Chat with us">
-    <i class="fa-solid fa-comments"></i>
-  </button>
-</div>
-
-<!-- Chat Box -->
-<div class="chatbox" id="chatbox">
-  <div class="chat-header">
-    Chat with RRR & CO
-    <button class="close-chat" id="closeChat">&times;</button>
-  </div>
-  <div class="chat-messages" id="chatMessages">
-    <div class="bot">👋 Welcome to RRR & CO!</div>
-    <div class="bot">You can ask about <b>services</b>, <b>contact</b>, or <b>about us</b>.</div>
-  </div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Type your message..." />
-    <button id="sendBtn">Send</button>
-  </div>
-</div>
-
-  <button id="backToTop" title="Back to Top">
-    <i class="fa fa-arrow-up"></i>
-  </button>
-  <script>
-    // === Scroll Animation for Story ===
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.storyabt img, .storyabt-content').forEach(el => observer.observe(el));
-
-    // === Counter Animation ===
- const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const speed = 50;
-    const increment = target / 100;
-
-    if (count < target) {
-      counter.innerText = Math.ceil(count + increment);
-      setTimeout(updateCount, speed);
-    } else {
-      counter.innerText = target;
+  @media (max-width:820px){
+    .servblock,
+    .servblock--alt{
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
     }
-  };
-  updateCount();
-});
-  </script>
+    .servtxt{
+      max-width:90%;
+      padding:0;
+    }
+    .servicon{
+      order:2;
+      max-width:80%;
+    }
+    .serv-accent{
+      left:50%;
+      transform:translateX(-50%);
+      top:12px;
+      width:70px;
+      height:6px;
+      border-radius:6px;
+    }
+    .serv-feats{
+      justify-content:center;
+    }
+    .serv-feat{
+      font-size:.9rem;
+      padding:7px 10px;
+    }
+    .servbtn{
+      padding:9px 16px;
+      font-size:.95rem;
+    }
+    .ritual-hero h1{font-size:1.9rem;}
+    .ritual-hero p{font-size:1rem;}
+    .shape-1,.shape-2{display:none;}
+  }
 
- <script src="main.js"></script>
+  @media (max-width:600px){
+    .servblock{
+      padding:24px 18px;
+      gap:18px;
+    }
+    .servtxt h3{font-size:1.3rem;}
+    .servtxt p{font-size:.94rem;}
+    .servbtn{
+      padding:8px 14px;
+      font-size:.9rem;
+    }
+    .servicon{max-width:88%;}
+    .serv-feat{padding:6px 10px;}
+  }
 
+  @media (max-width:480px){
+    .ritualwrap{padding:8px;}
+    .ritual-hero h1{font-size:1.6rem;}
+    .ritual-hero p{font-size:.95rem;}
+    .servblock{padding:20px 14px;}
+    .servtxt p{font-size:.9rem;}
+    .servbtn{padding:8px 12px;font-size:.88rem;}
+    .chooszone{
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:20px;
+      padding:30px 20px;
+    }
+    .choositem{width:100%;max-width:240px;}
+    .choosnum{font-size:1.6rem;}
+  }
+
+  @media (max-width:360px){
+    .servtxt h3{font-size:1.15rem;}
+    .servbtn{font-size:.85rem;}
+    .serv-feat{font-size:.85rem;}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="ritualwrap">
+
+  <header class="ritual-hero">
+    <h1>Our Services — RRR & CO</h1>
+    <p>Designed to give you clarity, compliance and growth — each service blends deep expertise with modern processes.</p>
+  </header>
+
+  <!-- ---------- Service 1 (Registration Services) ---------- -->
+  <section class="servzone">
+    <article class="servblock" id="serv-1">
+      <div class="serv-accent" aria-hidden="true"></div>
+
+      <div class="servtxt" aria-labelledby="reg-title">
+        <h3 id="reg-title">Registration Services</h3>
+        <p>We help businesses and individuals plan, manage, and optimize their tax strategies to ensure compliance and maximize savings. Our expert team stays ahead of the latest tax laws and regulations to guide you effectively through every financial decision. In addition to tax consulting, we provide complete business registration and compliance services — including Company Incorporation, OPC, LLP, NGO, Society, Partnership Firm setup, as well as assistance with PAN, TAN, Trade Licence, and Food Licence registrations — ensuring your enterprise starts strong and stays compliant from day one.</p>
+
+        <div class="serv-feats" aria-hidden="true">
+          <div class="serv-feat">Company / LLP / OPC</div>
+          <div class="serv-feat">PAN & TAN Setup</div>
+          <div class="serv-feat">Trade & Food Licence</div>
+        </div>
+
+        <a class="servbtn" href="#contact" aria-label="Learn more about Registration">Learn more</a>
+      </div>
+
+      <div class="servicon" data-follow="true" aria-hidden="true">
+        <!-- illustrative SVG (people & documents) -->
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff3e6"/>
+              <stop offset="1" stop-color="#fff8f2"/>
+            </linearGradient>
+          </defs>
+          <rect x="30" y="40" width="250" height="280" rx="16" fill="#ffffff" opacity="0.95"/>
+          <g transform="translate(40,60)">
+            <rect x="10" y="10" width="200" height="120" rx="8" fill="#ffe9c9"/>
+            <rect x="16" y="22" width="170" height="14" rx="6" fill="#fff"/>
+            <rect x="16" y="44" width="130" height="12" rx="6" fill="#fff"/>
+            <rect x="16" y="66" width="180" height="12" rx="6" fill="#fff"/>
+            <!-- person -->
+            <circle cx="60" cy="190" r="36" fill="#ffd59a"/>
+            <rect x="30" y="216" width="60" height="36" rx="10" fill="#ffac33"/>
+            <path d="M120 170 q20 -30 40 -10" stroke="#ffb347" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </article>
+  </section>
+
+  <!-- ---------- Service 2 (Business Services) ---------- -->
+  <section class="servzone">
+    <article class="servblock servblock--alt" id="serv-2">
+      <div class="serv-accent" aria-hidden="true"></div>
+
+      <div class="servtxt" aria-labelledby="bus-title">
+        <h3 id="bus-title">Business Services</h3>
+        <p>Our Business services provide transparency and confidence, ensuring your financial statements reflect true business performance and meet the highest professional standards. We also offer comprehensive support services, including Account Outsourcing, Internal Audits, MSME Registration, Project Reports & CMA preparation, and Bank Financing assistance — helping your business maintain accuracy, compliance, and financial strength.</p>
+
+        <div class="serv-feats" aria-hidden="true">
+          <div class="serv-feat">Account Outsourcing</div>
+          <div class="serv-feat">Internal Audit</div>
+          <div class="serv-feat">Project Reports & CMA</div>
+        </div>
+
+        <a class="servbtn" href="#contact" aria-label="Learn more about Business Services">Learn more</a>
+      </div>
+
+      <div class="servicon" data-follow="true" aria-hidden="true">
+        <!-- illustrative SVG (charts & briefcase) -->
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect x="40" y="30" width="260" height="300" rx="18" fill="#fff" opacity="0.96"/>
+          <g transform="translate(60,60)">
+            <rect x="10" y="10" width="200" height="28" rx="6" fill="#fff3e6"/>
+            <g transform="translate(0,60)">
+              <rect x="0" y="70" width="28" height="70" rx="4" fill="#ffd59a"/>
+              <rect x="40" y="40" width="28" height="100" rx="4" fill="#ffb347"/>
+              <rect x="80" y="20" width="28" height="120" rx="4" fill="#ff8c00"/>
+              <rect x="120" y="0" width="28" height="140" rx="4" fill="#ff7a00"/>
+            </g>
+            <rect x="150" y="10" width="40" height="40" rx="8" fill="#ffb347"/>
+            <path d="M180 200 q40 -40 80 0" stroke="#ff8c00" stroke-width="8" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </article>
+  </section>
+
+  <!-- ---------- Service 3 (Statutory Compliances) ---------- -->
+  <section class="servzone">
+    <article class="servblock" id="serv-3">
+      <div class="serv-accent" aria-hidden="true"></div>
+
+      <div class="servtxt" aria-labelledby="stat-title">
+        <h3 id="stat-title">Statutory Compliances</h3>
+        <p>From registration to filing and compliance, our GST experts simplify every step of the process. We ensure you remain fully compliant while minimizing tax liabilities and avoiding penalties. Our services extend beyond GST to include comprehensive financial compliance solutions such as Income Tax, TDS, ROC filings, PF, ESI, Professional Tax, Statutory Audits, and Digital Signature issuance — all under one trusted roof.</p>
+
+        <div class="serv-feats" aria-hidden="true">
+          <div class="serv-feat">GST / TDS / ROC</div>
+          <div class="serv-feat">PF / ESI / P.Tax</div>
+          <div class="serv-feat">Statutory Audit</div>
+        </div>
+
+        <a class="servbtn" href="#contact" aria-label="Learn more about Statutory Compliances">Learn more</a>
+      </div>
+
+      <div class="servicon" data-follow="true" aria-hidden="true">
+        <!-- illustrative SVG (shield & checklist) -->
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <rect x="40" y="40" width="260" height="280" rx="16" fill="#fff" opacity="0.96"/>
+          <g transform="translate(60,70)">
+            <rect x="0" y="0" width="200" height="36" rx="8" fill="#fff3e6"/>
+            <rect x="0" y="60" width="160" height="12" rx="6" fill="#fff"/>
+            <rect x="0" y="84" width="120" height="12" rx="6" fill="#fff"/>
+            <g transform="translate(130,110)">
+              <circle cx="20" cy="20" r="28" fill="#ffd59a"/>
+              <path d="M8 20 l10 10 l20 -20" stroke="#ff8c00" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <rect x="10" y="140" width="170" height="70" rx="10" fill="#ffefda"/>
+            <path d="M40 210 q40 -30 80 0" stroke="#ffb347" stroke-width="8" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </article>
+  </section>
+
+  <!-- ---------- Why Choose Us (counters) ---------- -->
+  <section class="chooszone" aria-label="Our impact">
+    <div class="choositem">
+      <div class="choosnum" data-goal="500">0</div>
+      <div class="choostxt">Businesses Served</div>
+    </div>
+    <div class="choositem">
+      <div class="choosnum" data-goal="120">0</div>
+      <div class="choostxt">Projects Completed</div>
+    </div>
+    <div class="choositem">
+      <div class="choosnum" data-goal="20">0</div>
+      <div class="choostxt">Years Combined</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  // ---------- Scroll reveal (single observer) ----------
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('inview');
+        // once revealed, unobserve to avoid re-trigger
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  document.querySelectorAll('.servblock').forEach(el => revealObserver.observe(el));
+  document.querySelectorAll('.choositem').forEach(el => revealObserver.observe(el));
+
+  // ---------- SVG follow (parallax) inside block ----------
+  // Only follow while pointer is inside a block; subtle movement
+  const followBlocks = document.querySelectorAll('[data-follow="true"]');
+  followBlocks.forEach(block => {
+    const svg = block.querySelector('svg');
+    if(!svg) return;
+
+    // pointer move within block
+    block.addEventListener('mousemove', (ev) => {
+      const rect = block.getBoundingClientRect();
+      const px = (ev.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+      const py = (ev.clientY - rect.top) / rect.height - 0.5;
+      const moveX = px * 18; // horizontal sensitivity
+      const moveY = py * 12; // vertical sensitivity
+      svg.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${px * 3}deg)`;
+    });
+
+    // when mouse leaves, return to center
+    block.addEventListener('mouseleave', () => {
+      svg.style.transform = `translate(0px,0px) rotate(0deg)`;
+    });
+  });
+
+  // ---------- Counters (start when visible) ----------
+  const counterObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target.querySelector('.choosnum');
+        if(!el) { obs.unobserve(entry.target); return; }
+        const goal = +el.getAttribute('data-goal');
+        let current = 0;
+        const duration = 1400; // ms
+        const stepTime = Math.max(12, Math.floor(duration / goal));
+        const step = () => {
+          current += Math.ceil(goal / (duration / stepTime));
+          if(current >= goal) current = goal;
+          el.textContent = current;
+          if(current < goal) setTimeout(step, stepTime);
+        };
+        step();
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('.choositem').forEach(el => counterObserver.observe(el));
+
+  // ---------- accessibility: enable keyboard focus hover effect ----------
+  document.querySelectorAll('.servblock').forEach(block => {
+    block.addEventListener('focusin', () => block.classList.add('inview'));
+  });
+
+</script>
 </body>
-
 </html>
-
-
-  
