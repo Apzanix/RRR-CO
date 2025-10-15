@@ -154,14 +154,14 @@
 
 
     /* Hero */
+
 .hero {
   position: relative;
-  background: url('img/index\ bg.png')
-    no-repeat center center/cover;
+  background: url('img/index bg.png') no-repeat center center/cover;
   height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* center single GIF */
   color: #fff;
   padding: 0 60px;
   overflow: hidden;
@@ -182,22 +182,26 @@
   max-width: 40%;
 }
 
-.hero-svg img {
-  width: 100%;
-  height: auto;
-  animation: float 4s ease-in-out infinite;
-}
-
 .hero-svg-right {
   position: relative;
   z-index: 1;
-  max-width: 45%;
+  width: 95%;              /* increased width */
+  max-width: 1000px;       /* allows large but contained image */
+  margin: 0 auto;
+  transform: translateX(-5%); /* more reliable left offset */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .hero-svg-right img {
-  width: 100%;
+  width: 110%;             /* slightly larger */
+  height: 80vh;
   transition: transform 0.2s ease-out;
 }
+
+
+
 
 
 /* Responsive Adjustments */
