@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — RRR & CO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRR & CO — Insights & Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
     * {
       margin: 0;
@@ -18,6 +18,7 @@
       background-color: #f6f7fb;
       color: #333;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     h1, h2, h3 {
@@ -29,205 +30,219 @@
       color: inherit;
     }
 
-    /* --- Wrapper --- */
-    .connect-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 80px 20px;
+    /* Hero */
+    .amber-summit {
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .connect-wrapper h1 {
-      color: #ff8c00;
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .connect-wrapper p {
-      max-width: 700px;
-      margin-bottom: 50px;
-      color: #555;
-      font-size: 1.05rem;
-    }
-
-    /* --- Main Container --- */
-    .linkbox {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      width: 100%;
-      max-width: 1000px;
-    }
-
-    .talk-card, .form-box {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      transition: all 0.4s ease;
-    }
-
-    .talk-card {
-      flex: 1 1 280px;
-      padding: 40px 30px;
-      text-align: left;
-      animation: slideUp 1s ease forwards;
-    }
-
-    .talk-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 35px rgba(255,140,0,0.25);
-    }
-
-    .talk-card h3 {
-      color: #ff8c00;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .talk-item {
-      margin: 15px 0;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      color: #444;
-      font-size: 0.98rem;
-    }
-
-    .talk-item i {
-      color: #ff8c00;
-      font-size: 1.3rem;
-      background: #fff3e5;
-      padding: 10px;
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-
-    .talk-item:hover i {
-      transform: scale(1.1);
+      padding: 6rem 1rem;
       background: #ff8c00;
       color: #fff;
+      animation: fadeDown 1.2s ease-out;
     }
 
-    /* --- Form Box --- */
-    .form-box {
-      flex: 1 1 400px;
-      padding: 40px;
-      animation: slideUp 1.2s ease forwards;
+    .amber-summit h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
     }
 
-    .form-box form {
+    .amber-summit p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Articles (Alternating Layout) */
+    .silk-row {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 4rem 8%;
+      flex-wrap: wrap;
+      transition: 0.5s ease;
     }
 
-    .form-field {
-      position: relative;
+    .silk-row:nth-child(even) {
+      flex-direction: row-reverse;
+      background: #fff;
     }
 
-    .form-field input, .form-field textarea {
+    .silk-img {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .silk-img img {
       width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background-color: #fff;
-      font-size: 0.95rem;
-      outline: none;
-      transition: 0.3s ease;
+      height: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      transition: transform 0.8s ease;
     }
 
-    .form-field input:focus, .form-field textarea:focus {
-      border-color: #ff8c00;
-      box-shadow: 0 0 6px rgba(255,140,0,0.2);
+    .silk-img:hover img {
+      transform: scale(1.05);
     }
 
-    .form-field textarea {
-      resize: none;
-      min-height: 120px;
+    .silk-content {
+      flex: 1;
+      max-width: 500px;
+      text-align: left;
+      animation: fadeSlide 1.2s ease;
     }
 
-    .send-btn1 {
-      background-color: #ff8c00;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+    .silk-content h2 {
+      color: #ff8c00;
+      margin-bottom: 1rem;
+    }
+
+    .silk-content p {
+      color: #555;
       font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .silk-content a {
+      color: #ff8c00;
       font-weight: 600;
-      transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
 
-    .send-btn1:hover {
-      background-color: #e67a00;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,140,0,0.3);
+    /* Resources (Horizontal Scroll) */
+    .glint-wrap {
+      background-color: #fff;
+      padding: 4rem 0;
+      overflow-x: auto;
+      display: flex;
+      gap: 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
 
-    /* --- Animations --- */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    .glint-item {
+      flex: 0 0 300px;
+      scroll-snap-align: center;
+      background: #f6f7fb;
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: transform 0.4s ease;
+    }
+
+    .glint-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .glint-item i {
+      font-size: 2.2rem;
+      color: #ff8c00;
+      margin-bottom: 1rem;
+    }
+
+    .glint-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .glint-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Animation */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
-    /* --- Responsive --- */
-    @media (max-width: 900px) {
-      .linkbox {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .talk-card, .form-box {
-        width: 90%;
-      }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .amber-summit h1 { font-size: 2rem; }
+      .silk-row { padding: 2.5rem 1.5rem; }
+      .silk-content { text-align: center; }
     }
-
   </style>
 </head>
-
 <body>
 
-  <section class="connect-wrapper">
-    <h1>Let’s Connect</h1>
-    <p>We’re here to help your business grow with confidence and compliance. Reach out to us for expert advice, professional services, or any query — we’ll get back to you promptly.</p>
+  <!-- HERO -->
+  <section class="amber-summit">
+    <h1>RRR & CO — Insights Hub</h1>
+    <p>Where financial clarity meets forward thinking — explore expert views and essential resources built for growth.</p>
+  </section>
 
-    <div class="linkbox">
+  <!-- BLOG SECTIONS -->
+  <section class="silk-row">
+    <div class="silk-img">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" alt="Tax Strategy">
+    </div>
+    <div class="silk-content">
+      <h2><i class="fa-solid fa-coins"></i> Tax Strategy 2.0</h2>
+      <p>RRR & CO’s experts decode the evolving tax landscape — learn how digitalization transforms compliance into opportunity.</p>
+      <a href="#">Read the article →</a>
+    </div>
+  </section>
 
-      <div class="talk-card">
-        <h3><i class="fa-solid fa-comments"></i> Get In Touch</h3>
+  <section class="silk-row">
+    <div class="silk-img">
+      <img src="img/blogimg.jpg" alt="Audit Simplified">
+    </div>
+    <div class="silk-content">
+      <h2><i class="fa-solid fa-clipboard-check"></i> Audit Reimagined</h2>
+      <p>Discover how transparency and automation help businesses achieve more meaningful audits with lasting value.</p>
+      <a href="#">Read the article →</a>
+    </div>
+  </section>
 
-        <div class="talk-item"><i class="fa-solid fa-phone"></i> +91 98765 43210</div>
-        <div class="talk-item"><i class="fa-solid fa-envelope"></i> info@rrrco.com</div>
-        <div class="talk-item"><i class="fa-solid fa-location-dot"></i> 21B, Business Park, Bhubaneswar, India</div>
-        <div class="talk-item"><i class="fa-solid fa-clock"></i> Mon - Sat: 10 AM - 7 PM</div>
-      </div>
+  <section class="silk-row">
+    <div class="silk-img">
+      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095" alt="Growth">
+    </div>
+    <div class="silk-content">
+      <h2><i class="fa-solid fa-chart-line"></i> Scaling with Precision</h2>
+      <p>Build a smarter, leaner business with RRR & CO insights — from compliance to expansion strategies that deliver.</p>
+      <a href="#">Read the article →</a>
+    </div>
+  </section>
 
-      <div class="form-box">
-        <form>
-          <div class="form-field">
-            <input type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-field">
-            <input type="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-field">
-            <input type="text" placeholder="Subject">
-          </div>
-          <div class="form-field">
-            <textarea placeholder="Your Message..." required></textarea>
-          </div>
-          <button class="send-btn1" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-        </form>
-      </div>
+  <!-- RESOURCES SCROLL -->
+  <section class="glint-wrap">
+    <div class="glint-item">
+      <i class="fa-solid fa-book-open"></i>
+      <h3>Tax Handbooks</h3>
+      <p>Comprehensive guides for structured tax planning and returns.</p>
+    </div>
 
+    <div class="glint-item">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <h3>Compliance Library</h3>
+      <p>Legal and statutory tools to maintain effortless adherence.</p>
+    </div>
+
+    <div class="glint-item">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Startup Playbook</h3>
+      <p>Step-by-step resources for entrepreneurs setting up new ventures.</p>
+    </div>
+
+    <div class="glint-item">
+      <i class="fa-solid fa-handshake-angle"></i>
+      <h3>Client Access</h3>
+      <p>Streamlined documentation and data-sharing tools for partners.</p>
+    </div>
+
+    <div class="glint-item">
+      <i class="fa-solid fa-cloud-arrow-down"></i>
+      <h3>Reports & Downloads</h3>
+      <p>Access the latest reports and industry insight PDFs by RRR & CO.</p>
     </div>
   </section>
 

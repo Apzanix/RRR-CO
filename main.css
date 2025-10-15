@@ -1638,3 +1638,144 @@
         font-size: 0.95rem;
       }
     }
+
+
+    /* Blogs */
+.amber-summit {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: #ff8c00;
+      color: #fff;
+      animation: fadeDown 1.2s ease-out;
+    }
+
+    .amber-summit h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .amber-summit p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Articles (Alternating Layout) */
+    .silk-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 4rem 8%;
+      flex-wrap: wrap;
+      transition: 0.5s ease;
+    }
+
+    .silk-row:nth-child(even) {
+      flex-direction: row-reverse;
+      background: #fff;
+    }
+
+    .silk-img {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .silk-img img {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .silk-img:hover img {
+      transform: scale(1.05);
+    }
+
+    .silk-content {
+      flex: 1;
+      max-width: 500px;
+      text-align: left;
+      animation: fadeSlide 1.2s ease;
+    }
+
+    .silk-content h2 {
+      color: #ff8c00;
+      margin-bottom: 1rem;
+    }
+
+    .silk-content p {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .silk-content a {
+      color: #ff8c00;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* Resources (Horizontal Scroll) */
+    .glint-wrap {
+      background-color: #fff;
+      padding: 4rem 0;
+      overflow-x: auto;
+      display: flex;
+      gap: 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .glint-item {
+      flex: 0 0 300px;
+      scroll-snap-align: center;
+      background: #f6f7fb;
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: transform 0.4s ease;
+    }
+
+    .glint-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .glint-item i {
+      font-size: 2.2rem;
+      color: #ff8c00;
+      margin-bottom: 1rem;
+    }
+
+    .glint-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .glint-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Animation */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .amber-summit h1 { font-size: 2rem; }
+      .silk-row { padding: 2.5rem 1.5rem; }
+      .silk-content { text-align: center; }
+    }
