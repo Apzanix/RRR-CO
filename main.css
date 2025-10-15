@@ -1441,3 +1441,200 @@
     .servbtn{font-size:.85rem;}
     .serv-feat{font-size:.85rem;}
   }
+
+
+
+  /* Main Connect us Page */
+
+.quill-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 20px;
+      text-align: center;
+      animation: mistIn 1s ease-in-out;
+    }
+
+    .quill-wrap h1 {
+      color: #ff8c00;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .quill-wrap p {
+      max-width: 700px;
+      margin-bottom: 50px;
+      color: #555;
+      font-size: 1.05rem;
+    }
+
+    /* ------------------- Content Columns ------------------- */
+    .ember-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .pearl-info,
+    .saffron-form {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    /* ------------------- Contact Info ------------------- */
+    .pearl-info {
+      flex: 1 1 300px;
+      padding: 45px 35px;
+      text-align: left;
+      animation: liftUp 1s ease forwards;
+    }
+
+    .pearl-info:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(255, 140, 0, 0.25);
+    }
+
+    .pearl-info h3 {
+      color: #ff8c00;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .muse-item {
+      margin: 18px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #444;
+      font-size: 0.98rem;
+      transition: all 0.3s ease;
+    }
+
+    .muse-item i {
+      color: #ff8c00;
+      font-size: 1.3rem;
+      background: #fff3e5;
+      padding: 10px;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .muse-item:hover i {
+      transform: scale(1.1);
+      background: #ff8c00;
+      color: #fff;
+    }
+
+    /* ------------------- Form ------------------- */
+    .saffron-form {
+      flex: 1 1 450px;
+      padding: 45px 40px;
+      animation: liftUp 1.2s ease forwards;
+    }
+
+    .saffron-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .linen-field {
+      position: relative;
+    }
+
+    .linen-field input,
+    .linen-field textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .linen-field input:focus,
+    .linen-field textarea:focus {
+      border-color: #ff8c00;
+      box-shadow: 0 0 6px rgba(255, 140, 0, 0.2);
+    }
+
+    .linen-field textarea {
+      resize: none;
+      min-height: 120px;
+    }
+
+    .blaze-send {
+      background-color: #ff8c00;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .blaze-send:hover {
+      background-color: #e67a00;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+    }
+
+    /* ------------------- Animations ------------------- */
+    @keyframes mistIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes liftUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ------------------- Responsiveness ------------------- */
+    @media (max-width: 1024px) {
+      .ember-grid {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .ember-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .pearl-info,
+      .saffron-form {
+        width: 92%;
+      }
+
+      .quill-wrap h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pearl-info,
+      .saffron-form {
+        padding: 35px 25px;
+      }
+
+      .linen-field input,
+      .linen-field textarea {
+        font-size: 0.9rem;
+      }
+
+      .blaze-send {
+        font-size: 0.95rem;
+      }
+    }
